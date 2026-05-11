@@ -3,37 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
     <meta name="description" content="Free online TikTok video downloader. Download TikTok videos without watermark, in high quality (HD), or convert to MP3 audio easily.">
     <meta name="keywords" content="TikTok downloader, download TikTok without watermark, save TikTok HD, TikTok to MP3, TikTok audio download">
-    <meta name="robots" content="index, follow">
     
     <title>TikTok Video Downloader - HD, No Watermark & MP3</title>
     
     <style>
-        /* CSS Reset and Variables */
         :root {
             --primary-color: #fe2c55;
             --primary-hover: #e0244b;
             --bg-color: #f8f9fa;
             --text-main: #333;
             --text-muted: #6c757d;
-            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
-            padding: 0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* Header Styling */
         header {
             background-color: #fff;
             padding: 20px 0;
@@ -41,17 +34,9 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 28px;
-            color: var(--text-main);
-        }
+        header h1 { margin: 0; font-size: 28px; }
+        header h1 span { color: var(--primary-color); }
 
-        header h1 span {
-            color: var(--primary-color);
-        }
-
-        /* Main Content */
         main {
             flex-grow: 1;
             display: flex;
@@ -66,20 +51,8 @@
             width: 100%;
             padding: 40px;
             border-radius: 16px;
-            box-shadow: var(--box-shadow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             text-align: center;
-        }
-
-        .downloader-card p {
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            font-size: 16px;
-        }
-
-        /* Input and Button */
-        .input-group {
-            position: relative;
-            margin-bottom: 25px;
         }
 
         input[type="url"] {
@@ -90,13 +63,10 @@
             border: 2px solid #e9ecef;
             border-radius: 10px;
             outline: none;
-            transition: all 0.3s ease;
+            margin-bottom: 20px;
         }
 
-        input[type="url"]:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 4px rgba(254, 44, 85, 0.1);
-        }
+        input[type="url"]:focus { border-color: var(--primary-color); }
 
         .btn-process {
             background-color: var(--primary-color);
@@ -108,14 +78,8 @@
             border-radius: 10px;
             cursor: pointer;
             width: 100%;
-            transition: background 0.3s ease;
         }
 
-        .btn-process:hover {
-            background-color: var(--primary-hover);
-        }
-
-        /* Loader */
         .loader {
             display: none;
             margin: 20px auto;
@@ -127,29 +91,13 @@
             animation: spin 1s linear infinite;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        /* Download Options Section */
         .download-options {
             display: none;
             margin-top: 30px;
             border-top: 1px solid #e9ecef;
             padding-top: 30px;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .download-options h3 {
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-size: 20px;
         }
 
         .btn-download {
@@ -161,126 +109,132 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 16px;
-            cursor: pointer;
-            transition: all 0.2s ease;
             box-sizing: border-box;
-            border: none;
+            text-align: center;
         }
 
-        .btn-no-watermark {
-            background-color: #28a745;
-            color: white;
-        }
-        .btn-no-watermark:hover { background-color: #218838; }
-
+        .btn-no-watermark { background-color: #28a745; color: white; }
         .btn-hd { background-color: #007bff; color: white; }
-        .btn-hd:hover { background-color: #0069d9; }
-
-        .btn-md { background-color: #17a2b8; color: white; }
-        .btn-md:hover { background-color: #138496; }
-
-        .btn-ld { background-color: #6c757d; color: white; }
-        .btn-ld:hover { background-color: #5a6268; }
-
         .btn-audio { background-color: #ffc107; color: #212529; }
-        .btn-audio:hover { background-color: #e0a800; }
 
-        /* Error Message */
         .error-msg {
             color: #dc3545;
             display: none;
-            margin-top: 10px;
+            margin-top: -10px;
+            margin-bottom: 15px;
             font-weight: 500;
         }
-
-        /* Footer */
-        footer {
-            background-color: #fff;
-            text-align: center;
-            padding: 20px;
-            border-top: 1px solid #e9ecef;
-            color: var(--text-muted);
-            font-size: 14px;
+        
+        .video-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            text-align: left;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
         }
+        .video-info img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
+        .video-info p { margin: 0; font-size: 14px; color: #555; }
+
+        footer { text-align: center; padding: 20px; font-size: 14px; color: var(--text-muted); }
     </style>
 </head>
 <body>
 
-    <!-- Header Section (SEO friendly) -->
     <header>
         <h1><span>TikTok</span> Video Downloader</h1>
     </header>
 
-    <!-- Main Content Area -->
     <main>
         <section class="downloader-card">
-            <p>Insert a TikTok video link below to download it without a watermark, in high quality, or convert it to an MP3 file.</p>
+            <input type="url" id="videoUrl" placeholder="Paste TikTok link here..." required>
+            <div class="error-msg" id="errorMsg">Error processing link. Try again.</div>
             
-            <div class="input-group">
-                <input type="url" id="videoUrl" placeholder="Paste link here... (e.g., https://www.tiktok.com/@user/video/...)" required>
-                <div class="error-msg" id="errorMsg">Please enter a valid URL.</div>
-            </div>
-            
-            <button class="btn-process" id="processBtn" onclick="processVideo()">Get Video Options</button>
-            
-            <!-- Loading Spinner -->
+            <button class="btn-process" id="processBtn" onclick="fetchVideoData()">Download</button>
             <div class="loader" id="loader"></div>
 
-            <!-- Download Options (Hidden by default) -->
             <div class="download-options" id="optionsSection">
-                <h3>Select Download Format</h3>
+                <div class="video-info" id="videoInfo">
+                    </div>
                 
-                <!-- Buttons representing the different qualities -->
-                <button class="btn-download btn-no-watermark" onclick="alert('Connecting to Backend to download No Watermark...')">Download Without Watermark</button>
-                <button class="btn-download btn-hd" onclick="alert('Connecting to Backend to download HD Quality...')">Download HD Quality</button>
-                <button class="btn-download btn-md" onclick="alert('Connecting to Backend to download Medium Quality...')">Download Medium Quality</button>
-                <button class="btn-download btn-ld" onclick="alert('Connecting to Backend to download Low Quality...')">Download Low Quality</button>
-                <button class="btn-download btn-audio" onclick="alert('Connecting to Backend to extract Audio MP3...')">Download Audio Only (MP3)</button>
+                <a id="btnNoWm" class="btn-download btn-no-watermark" href="#" target="_blank">Download (No Watermark)</a>
+                <a id="btnHd" class="btn-download btn-hd" href="#" target="_blank">Download (HD Quality)</a>
+                <a id="btnAudio" class="btn-download btn-audio" href="#" target="_blank">Download Audio (MP3)</a>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 TikTok Video Downloader. All rights reserved.</p>
-        <p><small>Disclaimer: This tool is for personal use only. Please respect copyright laws.</small></p>
     </footer>
 
-    <!-- JavaScript Logic -->
     <script>
-        function processVideo() {
+        async function fetchVideoData() {
             const urlInput = document.getElementById('videoUrl').value;
             const errorMsg = document.getElementById('errorMsg');
             const processBtn = document.getElementById('processBtn');
             const loader = document.getElementById('loader');
             const optionsSection = document.getElementById('optionsSection');
+            const videoInfo = document.getElementById('videoInfo');
 
-            // Reset UI
+            // إخفاء الأخطاء والنتائج القديمة
             errorMsg.style.display = 'none';
             optionsSection.style.display = 'none';
 
-            // Basic validation check
-            if(urlInput.trim() === "") {
+            if (!urlInput.includes("tiktok.com")) {
+                errorMsg.innerText = "Please enter a valid TikTok URL.";
                 errorMsg.style.display = 'block';
                 return;
             }
 
-            // UI changes during processing
+            // إظهار التحميل
             processBtn.style.display = 'none';
             loader.style.display = 'block';
 
-            // Simulate server fetching process (delay of 2.5 seconds)
-            // In a real application, you would make an AJAX/Fetch call to your backend API here
-            setTimeout(() => {
+            try {
+                // الاتصال بـ API مجاني لجلب روابط الفيديو
+                const apiUrl = `https://www.tikwm.com/api/?url=${encodeURIComponent(urlInput)}`;
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                if (data.code === 0) {
+                    // نجاح! تحديث الواجهة بمعلومات الفيديو
+                    const videoData = data.data;
+                    
+                    // وضع صورة الغلاف واسم الحساب
+                    videoInfo.innerHTML = `
+                        <img src="${videoData.cover}" alt="Video Cover">
+                        <div>
+                            <strong>@${videoData.author.unique_id}</strong>
+                            <p>${videoData.title.substring(0, 40)}...</p>
+                        </div>
+                    `;
+
+                    // ربط الأزرار بالروابط الحقيقية المستخرجة
+                    document.getElementById('btnNoWm').href = videoData.play;
+                    document.getElementById('btnHd').href = videoData.hdplay || videoData.play;
+                    document.getElementById('btnAudio').href = videoData.music;
+
+                    // إظهار قسم التحميل
+                    loader.style.display = 'none';
+                    optionsSection.style.display = 'block';
+                    processBtn.style.display = 'block';
+                    processBtn.innerText = 'Download Another Video';
+
+                } else {
+                    throw new Error("Video not found or private.");
+                }
+
+            } catch (error) {
+                // في حال حدوث خطأ
                 loader.style.display = 'none';
                 processBtn.style.display = 'block';
-                processBtn.innerText = 'Process Another Link';
-                
-                // Show the download options to the user
-                optionsSection.style.display = 'block';
-            }, 2500);
+                errorMsg.innerText = "Error fetching video. It might be private or deleted.";
+                errorMsg.style.display = 'block';
+            }
         }
     </script>
-
 </body>
 </html>
