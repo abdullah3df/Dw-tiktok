@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fe2c55;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#25f4ee;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- الخلفية الداكنة -->
+  <rect width="512" height="512" rx="112" fill="#111111" />
+  <!-- سهم التحميل -->
+  <path d="M256 380 L140 240 L210 240 L210 130 L302 130 L302 240 L372 240 Z" fill="url(#grad)" />
+  <!-- خط القاعدة المستدير -->
+  <path d="M140 420 L372 420" stroke="url(#grad)" stroke-width="36" stroke-linecap="round" />
+</svg>
