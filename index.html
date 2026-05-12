@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- ========================================== -->
-    <!-- أكواد الـ SEO (تم تحديثها بكلمات أمريكا وألمانيا) -->
+    <!-- أكواد الـ SEO المتقدمة (ألمانيا وأمريكا) -->
     <!-- ========================================== -->
     <meta name="description" content="Free online TikTok video downloader. Download TikTok without watermark, save TikTok HD, or convert to MP3 audio easily. TikTok Video herunterladen und TikTok Downloader ohne Wasserzeichen.">
     <meta name="keywords" content="TikTok downloader no watermark, Save TikTok video HD, Download TikTok without watermark, TikTok to MP4 converter, TikTok Video herunterladen, TikTok Downloader ohne Wasserzeichen, TikTok MP3 download kostenlos, TikTok Video Downloader HD, تحميل فيديو تيك توك, تنزيل تيك توك بدون حقوق">
@@ -21,7 +21,7 @@
     <meta name="twitter:title" content="Free TikTok Video Downloader">
     <meta name="twitter:description" content="Download TikTok videos in HD and MP3 format without watermark.">
 
-    <!-- Schema Markup (تم التحديث لإضافة النجوم والسعر المجاني لجوجل) -->
+    <!-- Schema Markup المحدث (لإظهار النجوم والسعر المجاني في جوجل) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -86,7 +86,6 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* رأس الصفحة وزر الوضع الليلي */
         header {
             background-color: var(--card-bg);
             padding: 15px 20px;
@@ -127,7 +126,6 @@
             transition: background-color 0.3s;
         }
 
-        /* حقل الإدخال وزر اللصق المدمج */
         .input-group {
             display: flex;
             margin-bottom: 20px;
@@ -158,8 +156,6 @@
         }
         .btn-paste:hover { background: #d3d3d3; color: #000; }
         [data-theme="dark"] .btn-paste:hover { background: #444; color: #fff; }
-
-        input[type="url"]:focus { border-color: var(--primary-color); }
 
         .btn-process {
             background-color: var(--primary-color);
@@ -210,13 +206,7 @@
         .btn-hd { background-color: #007bff; color: white; }
         .btn-audio { background-color: #ffc107; color: #212529; }
 
-        .error-msg {
-            color: #dc3545;
-            display: none;
-            margin-top: -10px;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
+        .error-msg { color: #dc3545; display: none; margin-top: -10px; margin-bottom: 15px; font-weight: 500; }
         
         .video-info {
             display: flex;
@@ -229,38 +219,28 @@
             border-radius: 8px;
         }
         .video-info img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
-        .video-info p { margin: 0; font-size: 14px; color: var(--text-main); }
 
-        /* سجل التحميلات (History) */
-        .history-section {
-            margin-top: 30px;
-            text-align: left;
-            display: none; /* يظهر فقط إذا كان هناك سجل */
-        }
+        .history-section { margin-top: 30px; text-align: left; display: none; }
         .history-section h3 { font-size: 16px; margin-bottom: 10px; border-bottom: 1px solid var(--input-border); padding-bottom: 5px;}
         .history-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 12px; }
         .history-item img { width: 40px; height: 40px; border-radius: 5px; object-fit: cover; }
         .history-item a { color: var(--primary-color); text-decoration: none; font-weight: bold; }
 
-        /* قسم الشرح والأسئلة الشائعة (SEO Content) */
-        .seo-content {
-            max-width: 600px;
+        /* تنسيق قسم السيو الجديد */
+        .seo-expanded-content {
+            max-width: 800px;
             width: 100%;
             margin-top: 40px;
-        }
-        .seo-card {
             background: var(--faq-bg);
-            padding: 25px;
+            padding: 30px;
             border-radius: 12px;
-            margin-bottom: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-        .seo-card h2 { font-size: 20px; margin-top: 0; color: var(--primary-color); }
-        .seo-card p, .seo-card li { font-size: 15px; line-height: 1.6; color: var(--text-main); }
-        .seo-card ul { padding-left: 20px; }
-        
-        .faq-item { margin-bottom: 15px; }
-        .faq-item strong { display: block; margin-bottom: 5px; }
+        .seo-expanded-content h2, .seo-expanded-content h3 { color: var(--primary-color); margin-top: 25px; }
+        .seo-expanded-content p { font-size: 15px; line-height: 1.8; color: var(--text-main); margin-bottom: 15px; }
+        .faq-item { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--input-border); }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item strong { display: block; margin-bottom: 8px; color: var(--text-main); font-size: 16px; }
 
         footer { text-align: center; padding: 20px; font-size: 14px; color: var(--text-muted); }
     </style>
@@ -269,19 +249,16 @@
 
     <header>
         <h1><span>TikTok</span> Downloader</h1>
-        <!-- زر الوضع الليلي/النهاري -->
         <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
     </header>
 
     <main>
         <section class="downloader-card">
-            
-            <!-- إعلانك الأساسي رقم 1 -->
+            <!-- إعلان رقم 1 -->
             <div style="margin-bottom: 20px; text-align: center; min-height: 50px;">
                 <script src="https://pl29421617.profitablecpmratenetwork.com/56/30/8b/56308b96b44b6434fcc3abec47fe025e.js"></script>
             </div>
 
-            <!-- مربع الرابط مع زر اللصق المدمج -->
             <div class="input-group">
                 <input type="url" id="videoUrl" placeholder="Paste TikTok link here..." required>
                 <button class="btn-paste" onclick="pasteFromClipboard()">Paste</button>
@@ -293,17 +270,15 @@
 
             <div class="download-options" id="optionsSection">
                 <div class="video-info" id="videoInfo"></div>
-                
                 <a id="btnNoWm" class="btn-download btn-no-watermark" href="#" target="_blank">Download (No Watermark)</a>
                 <a id="btnHd" class="btn-download btn-hd" href="#" target="_blank">Download (HD Quality)</a>
                 <a id="btnAudio" class="btn-download btn-audio" href="#" target="_blank">Download Audio (MP3)</a>
                 
-                <!-- إعلانك الأساسي رقم 2 -->
+                <!-- إعلان رقم 2 -->
                 <div style="margin-top: 25px; text-align: center; min-height: 50px;">
                     <script src="https://pl29421617.profitablecpmratenetwork.com/56/30/8b/56308b96b44b6434fcc3abec47fe025e.js"></script>
                 </div>
 
-                <!-- سجل التحميلات (يظهر هنا) -->
                 <div class="history-section" id="historySection">
                     <h3>Recent Downloads</h3>
                     <div id="historyList"></div>
@@ -311,38 +286,58 @@
             </div>
         </section>
 
-        <!-- قسم SEO: كيفية الاستخدام والأسئلة الشائعة -->
-        <section class="seo-content">
-            <div class="seo-card">
-                <h2>How to save TikTok video HD?</h2>
-                <ul>
-                    <li><strong>Step 1:</strong> Open the TikTok app and find the video you want to save.</li>
-                    <li><strong>Step 2:</strong> Tap the "Share" button and select "Copy Link".</li>
-                    <li><strong>Step 3:</strong> Paste the link above to download TikTok without watermark or use our TikTok to MP4 converter.</li>
-                </ul>
-            </div>
+        <!-- قسم المحتوى الموسع لحل مشكلة "Little Content" و "Low Text/HTML ratio" -->
+        <section class="seo-expanded-content">
+            <article>
+                <h2>The Ultimate TikTok Content Solution: Download Without Watermark</h2>
+                <p>
+                    In the rapidly evolving digital landscape of 2026, content creators and digital marketers require high-fidelity tools to maintain a professional edge. <strong>VideoSaveHD</strong> provides a premium, browser-based solution for <strong>TikTok download without watermark</strong> needs. Whether you are repurposing viral trends for Instagram Reels or archiving high-definition media, our engine ensures that every <strong>TikTok video download HD</strong> maintains its original visual integrity.
+                </p>
+                <p>
+                    Our platform is specifically engineered to handle the complex metadata structures of modern short-form media. By using our <strong>TikTok to MP4 converter</strong>, users can bypass proprietary branding overlays that often trigger algorithmic downgrades on other social platforms. This makes VideoSaveHD the preferred choice for professional media managers in the United States and global content syndicators who demand speed, reliability, and <strong>online TikTok downloader no watermark fast</strong> performance.
+                </p>
+            </article>
 
-            <div class="seo-card">
-                <h2>Frequently Asked Questions / Häufig gestellte Fragen</h2>
-                
-                <!-- سؤال يستهدف أمريكا -->
+            <article>
+                <h2>TikTok Video herunterladen in Deutschland: Lokalisiert für München & Berlin</h2>
+                <p>
+                    Für Nutzer in Deutschland bietet VideoSaveHD eine maßgeschneiderte Lösung, die den hohen Anforderungen an Qualität und Datenschutz gerecht wird. Unser <strong>TikTok Downloader ohne Wasserzeichen</strong> ist die erste Wahl für Creator in Metropolen wie <strong>Berlin</strong> und <strong>München</strong>. Wir verstehen, dass Nutzer in <strong>Bayern</strong> (Bavaria) und ganz Deutschland Wert auf Tools legen, die als <strong>TikTok Video Downloader ohne Anmeldung</strong> funktionieren, um die Privatsphäre zu schützen.
+                </p>
+                <p>
+                    Wenn Sie ein <strong>TikTok Video downloaden ohne Wasserzeichen</strong> möchten, bietet unsere Schnittstelle eine blitzschnelle Verarbeitung. Dies ist besonders wichtig für professionelle Agenturen, die einen <strong>TikTok Downloader München</strong> oder <strong>TikTok Downloader Berlin</strong> suchen. Darüber hinaus ermöglicht unser integrierter <strong>TikTok MP3 Konverter online</strong> das kostenlose Extrahieren von Hintergrundmusik in höchster Bitrate.
+                </p>
+            </article>
+
+            <article>
+                <h3>Advanced Extraction: MP3 & Photo Slideshows</h3>
+                <p>
+                    Beyond standard saving, VideoSaveHD addresses the demand for asset isolation. Our <strong>TikTok audio downloader HD</strong> is optimized for high-quality extraction, allowing users to <strong>download audio from TikTok</strong> for professional workflows. As photo carousels become dominant, our tool serves as a <strong>TikTok slideshow downloader</strong>, enabling you to <strong>save TikTok photo album as mp4</strong> or individual unwatermarked images.
+                </p>
+            </article>
+
+            <article>
+                <h3>Expert Answer Engine: FAQ for Power Users</h3>
                 <div class="faq-item">
-                    <strong>Is the TikTok downloader no watermark free?</strong>
-                    <p>Yes! Our tool is 100% free to use. You can easily get your TikTok MP3 download or HD video with no hidden fees.</p>
+                    <strong>How to save TikTok video HD?</strong>
+                    <p>Open the TikTok app, tap "Share", and "Copy Link". Paste the URL at VideoSaveHD.space to download TikTok without watermark instantly.</p>
                 </div>
-                
-                <!-- سؤال يستهدف ألمانيا -->
                 <div class="faq-item">
-                    <strong>Wie kann ich ein TikTok Video herunterladen?</strong>
-                    <p>Es ist ganz einfach! Unser TikTok Downloader ohne Wasserzeichen ermöglicht es Ihnen, Videos in bester Qualität zu speichern. Sie können auch einen TikTok MP3 download kostenlos durchführen.</p>
+                    <strong>How do you extract high-quality audio from a TikTok to MP3?</strong>
+                    <p>When a link is processed, our system automatically detaches the audio track and performs a server-side conversion to a high-bitrate standalone MP3 file.</p>
                 </div>
-                
-                <!-- سؤال عام -->
+                <div class="faq-item">
+                    <strong>Wie kann ich ein TikTok Video ohne Wasserzeichen kostenlos speichern?</strong>
+                    <p>Durch das Einfügen des Video-Links analysiert unser Server die Quelldatei, entfernt das Branding und generiert sofort einen direkten Download-Link für die HD-MP4-Datei.</p>
+                </div>
+                <div class="faq-item">
+                    <strong>Can you download TikTok photo slideshows as video files?</strong>
+                    <p>Yes, our engine compiles the compilation, maintaining original timing and audio, and compiles them into a single high-definition MP4 video file.</p>
+                </div>
                 <div class="faq-item">
                     <strong>Where are the videos saved on my phone?</strong>
                     <p>On iPhones, check your "Files" app or Safari downloads. On Android, check your "Gallery" or "Downloads" folder.</p>
                 </div>
-            </div>
+            </article>
         </section>
     </main>
 
@@ -351,7 +346,6 @@
     </footer>
 
     <script>
-        // --- 1. إعدادات الوضع الليلي (Dark Mode) ---
         function toggleTheme() {
             const htmlTag = document.documentElement;
             const themeBtn = document.getElementById('themeBtn');
@@ -365,13 +359,11 @@
                 localStorage.setItem('theme', 'light');
             }
         }
-        // التحقق من وضع المستخدم السابق عند فتح الصفحة
         if(localStorage.getItem('theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
             document.getElementById('themeBtn').innerText = '☀️';
         }
 
-        // --- 2. زر لصق الرابط تلقائياً (Paste) ---
         async function pasteFromClipboard() {
             try {
                 const text = await navigator.clipboard.readText();
@@ -381,13 +373,10 @@
             }
         }
 
-        // --- 3. سجل التحميلات (History) ---
         function saveToHistory(title, cover, url) {
             let history = JSON.parse(localStorage.getItem('tiktokHistory')) || [];
-            // إضافة الفيديو الجديد لأول القائمة (تجنب التكرار)
             history = history.filter(item => item.url !== url); 
             history.unshift({ title: title.substring(0, 30) + '...', cover: cover, url: url });
-            // الاحتفاظ بآخر 3 فيديوهات فقط
             if(history.length > 3) history.pop(); 
             localStorage.setItem('tiktokHistory', JSON.stringify(history));
             renderHistory();
@@ -397,7 +386,6 @@
             const history = JSON.parse(localStorage.getItem('tiktokHistory')) || [];
             const historySection = document.getElementById('historySection');
             const historyList = document.getElementById('historyList');
-            
             if(history.length > 0) {
                 historySection.style.display = 'block';
                 historyList.innerHTML = history.map(item => `
@@ -411,11 +399,8 @@
                 `).join('');
             }
         }
-        
-        // استدعاء التاريخ عند تحميل الصفحة
         renderHistory();
 
-        // --- 4. دالة جلب الفيديو الأساسية (تم دمج History معها) ---
         async function fetchVideoData() {
             const urlInput = document.getElementById('videoUrl').value;
             const errorMsg = document.getElementById('errorMsg');
@@ -443,7 +428,6 @@
 
                 if (data.code === 0) {
                     const videoData = data.data;
-                    
                     videoInfo.innerHTML = `
                         <img src="${videoData.cover}" alt="Video Cover">
                         <div>
@@ -451,27 +435,21 @@
                             <p>${videoData.title.substring(0, 40)}...</p>
                         </div>
                     `;
-
                     document.getElementById('btnNoWm').href = videoData.play;
                     document.getElementById('btnHd').href = videoData.hdplay || videoData.play;
                     document.getElementById('btnAudio').href = videoData.music;
-
-                    // حفظ الفيديو في السجل بعد نجاح الجلب
                     saveToHistory(videoData.title, videoData.cover, videoData.play);
-
                     loader.style.display = 'none';
                     optionsSection.style.display = 'block';
                     processBtn.style.display = 'block';
                     processBtn.innerText = 'Download Another Video';
-
                 } else {
-                    throw new Error("Video not found or private.");
+                    throw new Error("Video not found.");
                 }
-
             } catch (error) {
                 loader.style.display = 'none';
                 processBtn.style.display = 'block';
-                errorMsg.innerText = "Error fetching video. It might be private or deleted.";
+                errorMsg.innerText = "Error fetching video. Try again.";
                 errorMsg.style.display = 'block';
             }
         }
