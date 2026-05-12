@@ -1,33 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- ========================================== -->
-    <!-- بداية إضافات الـ SEO (لا يراها المستخدم، يراها جوجل فقط) -->
+    <!-- أكواد الـ SEO (باقية كما هي دون تعديل) -->
     <!-- ========================================== -->
-    
-    <!-- 1. وصف الصفحة والكلمات المفتاحية المحسنة (عالمي، عربي، ألماني) -->
     <meta name="description" content="Free online TikTok video downloader. Download TikTok videos without watermark, in high quality (HD), or convert to MP3 audio easily. تنزيل فيديو تيك توك بدون علامة مائية.">
     <meta name="keywords" content="TikTok downloader, download TikTok without watermark, save TikTok HD, TikTok to MP3, تحميل فيديو تيك توك, تنزيل تيك توك بدون حقوق, حفظ مقاطع تيك توك, tiktok video herunterladen, tiktok downloader ohne wasserzeichen, tiktok mp3 download">
-    
-    <!-- 2. الرابط الأساسي (لحل مشكلة رفض فهرسة جوجل) -->
     <link rel="canonical" href="https://www.videosavehd.space/" />
 
-    <!-- 3. إعدادات المشاركة على واتساب وفيسبوك (Open Graph) -->
+    <!-- Open Graph & Twitter -->
     <meta property="og:title" content="TikTok Video Downloader - HD, No Watermark & MP3">
     <meta property="og:description" content="Download TikTok videos without watermark for free. Fast, easy, and high quality.">
     <meta property="og:url" content="https://www.videosavehd.space/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="VideoSaveHD">
-    
-    <!-- 4. إعدادات المشاركة على تويتر (X) -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Free TikTok Video Downloader">
     <meta name="twitter:description" content="Download TikTok videos in HD and MP3 format without watermark.">
 
-    <!-- 5. الهيكلة الذكية (Schema Markup) لإقناع جوجل بأن الأداة موثوقة -->
+    <!-- Schema Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -39,22 +33,36 @@
       "operatingSystem": "All"
     }
     </script>
-    <!-- ========================================== -->
-    <!-- نهاية إضافات الـ SEO -->
-    <!-- ========================================== -->
 
     <title>TikTok Video Downloader - HD, No Watermark & MP3</title>
-    
-    <!-- إضافة الشعار (Favicon) هنا -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
     <style>
+        /* ========================================== */
+        /* المتغيرات الأساسية لدعم الوضع الليلي والنهاري */
+        /* ========================================== */
         :root {
             --primary-color: #fe2c55;
             --primary-hover: #e0244b;
             --bg-color: #f8f9fa;
+            --card-bg: #fff;
             --text-main: #333;
             --text-muted: #6c757d;
+            --input-border: #e9ecef;
+            --input-bg: #fff;
+            --faq-bg: #fff;
+            --history-bg: #f8f9fa;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #f1f1f1;
+            --text-muted: #aaaaaa;
+            --input-border: #333;
+            --input-bg: #2d2d2d;
+            --faq-bg: #1e1e1e;
+            --history-bg: #2d2d2d;
         }
 
         body {
@@ -65,46 +73,81 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
         }
 
+        /* رأس الصفحة وزر الوضع الليلي */
         header {
-            background-color: #fff;
-            padding: 20px 0;
-            text-align: center;
+            background-color: var(--card-bg);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
         }
 
-        header h1 { margin: 0; font-size: 28px; }
+        header h1 { margin: 0; font-size: 24px; }
         header h1 span { color: var(--primary-color); }
+        
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-main);
+        }
 
         main {
             flex-grow: 1;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             padding: 40px 20px;
         }
 
         .downloader-card {
-            background: #fff;
+            background: var(--card-bg);
             max-width: 600px;
             width: 100%;
             padding: 40px;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        /* حقل الإدخال وزر اللصق المدمج */
+        .input-group {
+            display: flex;
+            margin-bottom: 20px;
+            border: 2px solid var(--input-border);
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--input-bg);
         }
 
         input[type="url"] {
-            width: 100%;
-            box-sizing: border-box;
+            flex-grow: 1;
             padding: 16px 20px;
             font-size: 16px;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
+            border: none;
+            background: transparent;
+            color: var(--text-main);
             outline: none;
-            margin-bottom: 20px;
         }
+
+        .btn-paste {
+            background: var(--input-border);
+            color: var(--text-main);
+            border: none;
+            padding: 0 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-paste:hover { background: #d3d3d3; color: #000; }
+        [data-theme="dark"] .btn-paste:hover { background: #444; color: #fff; }
 
         input[type="url"]:focus { border-color: var(--primary-color); }
 
@@ -136,7 +179,7 @@
         .download-options {
             display: none;
             margin-top: 30px;
-            border-top: 1px solid #e9ecef;
+            border-top: 1px solid var(--input-border);
             padding-top: 30px;
         }
 
@@ -171,12 +214,43 @@
             gap: 15px;
             margin-bottom: 20px;
             text-align: left;
-            background: #f8f9fa;
+            background: var(--history-bg);
             padding: 10px;
             border-radius: 8px;
         }
         .video-info img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
-        .video-info p { margin: 0; font-size: 14px; color: #555; }
+        .video-info p { margin: 0; font-size: 14px; color: var(--text-main); }
+
+        /* سجل التحميلات (History) */
+        .history-section {
+            margin-top: 30px;
+            text-align: left;
+            display: none; /* يظهر فقط إذا كان هناك سجل */
+        }
+        .history-section h3 { font-size: 16px; margin-bottom: 10px; border-bottom: 1px solid var(--input-border); padding-bottom: 5px;}
+        .history-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 12px; }
+        .history-item img { width: 40px; height: 40px; border-radius: 5px; object-fit: cover; }
+        .history-item a { color: var(--primary-color); text-decoration: none; font-weight: bold; }
+
+        /* قسم الشرح والأسئلة الشائعة (SEO Content) */
+        .seo-content {
+            max-width: 600px;
+            width: 100%;
+            margin-top: 40px;
+        }
+        .seo-card {
+            background: var(--faq-bg);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .seo-card h2 { font-size: 20px; margin-top: 0; color: var(--primary-color); }
+        .seo-card p, .seo-card li { font-size: 15px; line-height: 1.6; color: var(--text-main); }
+        .seo-card ul { padding-left: 20px; }
+        
+        .faq-item { margin-bottom: 15px; }
+        .faq-item strong { display: block; margin-bottom: 5px; }
 
         footer { text-align: center; padding: 20px; font-size: 14px; color: var(--text-muted); }
     </style>
@@ -184,32 +258,73 @@
 <body>
 
     <header>
-        <h1><span>TikTok</span> Video Downloader</h1>
+        <h1><span>TikTok</span> Downloader</h1>
+        <!-- زر الوضع الليلي/النهاري -->
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
     </header>
 
     <main>
         <section class="downloader-card">
             
+            <!-- إعلانك الأساسي رقم 1 -->
             <div style="margin-bottom: 20px; text-align: center; min-height: 50px;">
                 <script src="https://pl29421617.profitablecpmratenetwork.com/56/30/8b/56308b96b44b6434fcc3abec47fe025e.js"></script>
             </div>
 
-            <input type="url" id="videoUrl" placeholder="Paste TikTok link here..." required>
-            <div class="error-msg" id="errorMsg">Error processing link. Try again.</div>
+            <!-- مربع الرابط مع زر اللصق المدمج -->
+            <div class="input-group">
+                <input type="url" id="videoUrl" placeholder="Paste TikTok link here..." required>
+                <button class="btn-paste" onclick="pasteFromClipboard()">Paste</button>
+            </div>
             
+            <div class="error-msg" id="errorMsg">Error processing link. Try again.</div>
             <button class="btn-process" id="processBtn" onclick="fetchVideoData()">Download</button>
             <div class="loader" id="loader"></div>
 
             <div class="download-options" id="optionsSection">
-                <div class="video-info" id="videoInfo">
-                </div>
+                <div class="video-info" id="videoInfo"></div>
                 
                 <a id="btnNoWm" class="btn-download btn-no-watermark" href="#" target="_blank">Download (No Watermark)</a>
                 <a id="btnHd" class="btn-download btn-hd" href="#" target="_blank">Download (HD Quality)</a>
                 <a id="btnAudio" class="btn-download btn-audio" href="#" target="_blank">Download Audio (MP3)</a>
                 
+                <!-- إعلانك الأساسي رقم 2 -->
                 <div style="margin-top: 25px; text-align: center; min-height: 50px;">
                     <script src="https://pl29421617.profitablecpmratenetwork.com/56/30/8b/56308b96b44b6434fcc3abec47fe025e.js"></script>
+                </div>
+
+                <!-- سجل التحميلات (يظهر هنا) -->
+                <div class="history-section" id="historySection">
+                    <h3>Recent Downloads</h3>
+                    <div id="historyList"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم SEO: كيفية الاستخدام والأسئلة الشائعة -->
+        <section class="seo-content">
+            <div class="seo-card">
+                <h2>How to Download TikTok Videos?</h2>
+                <ul>
+                    <li><strong>Step 1:</strong> Open the TikTok app or website and find the video you want to save.</li>
+                    <li><strong>Step 2:</strong> Tap the "Share" button and select "Copy Link".</li>
+                    <li><strong>Step 3:</strong> Paste the link into the box above and click "Download". Choose your preferred format (MP4 HD or MP3 Audio).</li>
+                </ul>
+            </div>
+
+            <div class="seo-card">
+                <h2>Frequently Asked Questions (FAQ)</h2>
+                <div class="faq-item">
+                    <strong>Is this TikTok Downloader free?</strong>
+                    <p>Yes! Our tool is 100% free to use with no hidden fees or registration required.</p>
+                </div>
+                <div class="faq-item">
+                    <strong>Are there any watermarks on the downloaded videos?</strong>
+                    <p>No, our service removes the TikTok logo and watermark automatically, providing you with clean, high-quality HD videos.</p>
+                </div>
+                <div class="faq-item">
+                    <strong>Where are the videos saved on my phone?</strong>
+                    <p>On iPhones, check your "Files" app or Safari downloads. On Android, check your "Gallery" or "Downloads" folder.</p>
                 </div>
             </div>
         </section>
@@ -220,6 +335,71 @@
     </footer>
 
     <script>
+        // --- 1. إعدادات الوضع الليلي (Dark Mode) ---
+        function toggleTheme() {
+            const htmlTag = document.documentElement;
+            const themeBtn = document.getElementById('themeBtn');
+            if (htmlTag.getAttribute('data-theme') === 'light') {
+                htmlTag.setAttribute('data-theme', 'dark');
+                themeBtn.innerText = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                htmlTag.setAttribute('data-theme', 'light');
+                themeBtn.innerText = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        // التحقق من وضع المستخدم السابق عند فتح الصفحة
+        if(localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.getElementById('themeBtn').innerText = '☀️';
+        }
+
+        // --- 2. زر لصق الرابط تلقائياً (Paste) ---
+        async function pasteFromClipboard() {
+            try {
+                const text = await navigator.clipboard.readText();
+                document.getElementById('videoUrl').value = text;
+            } catch (err) {
+                alert('Please allow clipboard access or paste manually.');
+            }
+        }
+
+        // --- 3. سجل التحميلات (History) ---
+        function saveToHistory(title, cover, url) {
+            let history = JSON.parse(localStorage.getItem('tiktokHistory')) || [];
+            // إضافة الفيديو الجديد لأول القائمة (تجنب التكرار)
+            history = history.filter(item => item.url !== url); 
+            history.unshift({ title: title.substring(0, 30) + '...', cover: cover, url: url });
+            // الاحتفاظ بآخر 3 فيديوهات فقط
+            if(history.length > 3) history.pop(); 
+            localStorage.setItem('tiktokHistory', JSON.stringify(history));
+            renderHistory();
+        }
+
+        function renderHistory() {
+            const history = JSON.parse(localStorage.getItem('tiktokHistory')) || [];
+            const historySection = document.getElementById('historySection');
+            const historyList = document.getElementById('historyList');
+            
+            if(history.length > 0) {
+                historySection.style.display = 'block';
+                historyList.innerHTML = history.map(item => `
+                    <div class="history-item">
+                        <img src="${item.cover}" alt="cover">
+                        <div>
+                            <p style="margin:0; font-size:12px;">${item.title}</p>
+                            <a href="${item.url}" target="_blank">Download Again</a>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+        
+        // استدعاء التاريخ عند تحميل الصفحة
+        renderHistory();
+
+        // --- 4. دالة جلب الفيديو الأساسية (تم دمج History معها) ---
         async function fetchVideoData() {
             const urlInput = document.getElementById('videoUrl').value;
             const errorMsg = document.getElementById('errorMsg');
@@ -228,7 +408,6 @@
             const optionsSection = document.getElementById('optionsSection');
             const videoInfo = document.getElementById('videoInfo');
 
-            // إخفاء الأخطاء والنتائج القديمة
             errorMsg.style.display = 'none';
             optionsSection.style.display = 'none';
 
@@ -238,21 +417,17 @@
                 return;
             }
 
-            // إظهار التحميل
             processBtn.style.display = 'none';
             loader.style.display = 'block';
 
             try {
-                // الاتصال بـ API مجاني لجلب روابط الفيديو
                 const apiUrl = `https://www.tikwm.com/api/?url=${encodeURIComponent(urlInput)}`;
                 const response = await fetch(apiUrl);
                 const data = await response.json();
 
                 if (data.code === 0) {
-                    // نجاح! تحديث الواجهة بمعلومات الفيديو
                     const videoData = data.data;
                     
-                    // وضع صورة الغلاف واسم الحساب
                     videoInfo.innerHTML = `
                         <img src="${videoData.cover}" alt="Video Cover">
                         <div>
@@ -261,12 +436,13 @@
                         </div>
                     `;
 
-                    // ربط الأزرار بالروابط الحقيقية المستخرجة
                     document.getElementById('btnNoWm').href = videoData.play;
                     document.getElementById('btnHd').href = videoData.hdplay || videoData.play;
                     document.getElementById('btnAudio').href = videoData.music;
 
-                    // إظهار قسم التحميل
+                    // حفظ الفيديو في السجل بعد نجاح الجلب
+                    saveToHistory(videoData.title, videoData.cover, videoData.play);
+
                     loader.style.display = 'none';
                     optionsSection.style.display = 'block';
                     processBtn.style.display = 'block';
@@ -277,7 +453,6 @@
                 }
 
             } catch (error) {
-                // في حال حدوث خطأ
                 loader.style.display = 'none';
                 processBtn.style.display = 'block';
                 errorMsg.innerText = "Error fetching video. It might be private or deleted.";
