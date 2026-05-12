@@ -1,0 +1,20 @@
+# VideoSaveHD - TikTok Downloader & Converter
+
+> Free online tool to download TikTok videos without watermark in HD and extract MP3 audio.
+
+## Core Functionality
+- **No Watermark Download**: Removes proprietary visual metadata from TikTok videos.
+- **HD Quality**: Provides uncompressed MP4 files up to 1080p.
+- **Audio Extraction**: High-bitrate MP3 conversion from any video link.
+- **Fast Processing**: Server-side rendering in under 2 seconds.
+
+## Target Keywords
+- TikTok downloader no watermark
+- TikTok to MP3 converter
+- TikTok video herunterladen (German Support)
+- Save TikTok slideshow as MP4
+
+## Technical Specs
+- URL: https://www.videosavehd.space/
+- Region: Global (Optimized for US & Germany)
+- Requirements: No registration, no login, 100% free.
